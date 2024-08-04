@@ -116,6 +116,10 @@ func initializeDependencyDependencies[T any](inj *Injector, dep T) {
 			continue
 		}
 
+		if field.Tag("di") != "inject" {
+			continue
+		}
+
 		fieldType := reflect.ValueOf(field.Value()).Type()
 		instance := initializeDependencyTree(inj, fieldType)
 		if instance == nil {

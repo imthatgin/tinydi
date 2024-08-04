@@ -9,7 +9,7 @@ import (
 )
 
 type HelloService struct {
-	World    *WorldService
+	World    *WorldService `di:"inject"`
 	HelloMap map[string]string
 }
 
@@ -42,6 +42,9 @@ func TestAdd(t *testing.T) {
 		return &WorldService{
 			value: "World",
 		}
+	})
+	tinydi.Add[NumberService](i, func(i *tinydi.Injector) *NumberService {
+		return &NumberService{}
 	})
 
 	h := tinydi.MustGet[HelloService](i)

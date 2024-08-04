@@ -3,6 +3,11 @@
 ## Usage
 You can either create a new context, using `tinydi.New()`, or use `nil` in place of it, to use the default
 context.
+
+### Tags
+Make sure to annotate your sub-dependencies with *\`di:"inject"\`*
+
+### Code example
 ```go
 package main
 
@@ -10,7 +15,7 @@ import "fmt"
 import "github.com/imthatgin/tinydi"
 
 type HelloService struct {
-	World    *WorldService
+	World    *WorldService `di:"inject"`
 	HelloMap map[string]string
 }
 
