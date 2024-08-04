@@ -2,7 +2,7 @@ package tinydi
 
 import (
 	"github.com/fatih/structs"
-	"github.com/labstack/gommon/log"
+	"log"
 	"reflect"
 )
 
